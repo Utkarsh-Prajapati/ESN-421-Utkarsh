@@ -1,1 +1,1 @@
-# ESN-421-Utkarsh
+# ESN-421-Numeric Modelling in Geophysics
