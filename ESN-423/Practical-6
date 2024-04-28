@@ -1,0 +1,25 @@
+G = [2 3 ; 5 7 ];
+orig = [0; 0];
+v = [1; 6];
+b = G*v;
+plot([orig(1), v(1)], [orig(2), v(2)], '-','color','blue');
+hold on
+plot([orig(1), b(1)], [orig(2), b(2)], '-','color','red');
+
+% calculate svd
+[U,S,V] = svd(G);
+
+Vt = V'*v;
+plot([orig(1), Vt(1)], [orig(2), Vt(2)], '-','color','black');
+
+SVt = S*Vt;
+plot([orig(1), SVt(1)], [orig(2), SVt(2)], '-','color','cyan');
+
+d = U*SVt;
+plot([orig(1), d(1)], [orig(2), d(2)], '-','color','yellow');
+
+% Inverse
+Gdagger = V*inv(S)*U';
+Gpinv = pinv(G);
+
+%Svd have the truncated option
